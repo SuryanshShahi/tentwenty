@@ -23,7 +23,7 @@ const useHook = () => {
       if (result?.error) {
         setError("Invalid credentials");
       } else {
-        router.push("/timesheet");
+        router.replace("/timesheet");
       }
     } catch (error) {
       setError("An error occurred during login");
