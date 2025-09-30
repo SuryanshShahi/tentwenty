@@ -21,9 +21,8 @@ export default function RootLayout({
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  // Redirect to login if not authenticated
   useEffect(() => {
-    if (status === "loading") return; // Still loading
+    if (status === "loading") return;
     if (!session) {
       router.push("/login");
     }
@@ -33,7 +32,6 @@ export default function RootLayout({
     await signOut({ callbackUrl: "/login" });
   };
 
-  // Show loading or nothing while checking authentication
   if (status === "loading") {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -42,7 +40,6 @@ export default function RootLayout({
     );
   }
 
-  // Don't render if not authenticated (will redirect)
   if (!session) {
     return null;
   }
@@ -86,7 +83,7 @@ export default function RootLayout({
                         onKeyDown={() => {}}
                       />
                     ),
-                    text: "Check out",
+                    text: "Logout",
                     onClick: () => setIsOpen("LOGOUT_MODAL"),
                   },
                 ]}
@@ -98,7 +95,7 @@ export default function RootLayout({
       </nav>
       {children}
       <ConfirmationModal
-        title="Check Out"
+        title="Logout"
         description="Are you sure you want to Logout"
         onSubmit={handleLogout}
         styleHeader="flex gap-x-4 !space-y-0"

@@ -7,16 +7,16 @@ export const authOptions: NextAuthOptions = {
       name: "credentials",
       credentials: {
         email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" }
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
           return null;
         }
-
-        // Here you would typically validate credentials against your database
-        // For demo purposes, I'm using hardcoded credentials
-        if (credentials.email === "admin@example.com" && credentials.password === "password") {
+        if (
+          credentials.email === "admin@example.com" &&
+          credentials.password === "password"
+        ) {
           return {
             id: "1",
             email: "admin@example.com",
@@ -25,8 +25,8 @@ export const authOptions: NextAuthOptions = {
         }
 
         return null;
-      }
-    })
+      },
+    }),
   ],
   pages: {
     signIn: "/login",
