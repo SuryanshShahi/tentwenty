@@ -2,15 +2,15 @@
 import DropdownField from "@/app/shared";
 import Button from "@/app/shared/Button";
 import CalendarPopup from "@/app/shared/calendarPopup";
-import CardWrapper from "@/app/shared/cards/CardWrapper";
 import Chip from "@/app/shared/Chip";
 import { SvgCross } from "@/app/svgs";
 import clsx from "clsx";
 import moment from "moment";
-import React from "react";
+import { useRouter } from "next/navigation";
 import { FiCalendar } from "react-icons/fi";
 
 const page = () => {
+  const router = useRouter();
   return (
     <div className="max-w-screen-xl lg:mx-auto border border-secondary !rounded-xl bg-white mx-5 mt-10">
       <div className="px-6 py-5 text-lg font-bold">TimeSheets</div>
@@ -71,6 +71,7 @@ const page = () => {
               .fill(null)
               ?.map((_, idx) => (
                 <tr
+                  key={idx}
                   className={clsx(
                     "[&>*]:px-6 [&>*]:py-4",
                     idx !== 9 && "border-b border-secondary"
@@ -95,7 +96,12 @@ const page = () => {
                     />
                   </td>
                   <td className="w-10">
-                    <Button variant="tertiary-color" btnName="View" size="xs" />
+                    <Button
+                      variant="tertiary-color"
+                      btnName="View"
+                      size="xs"
+                      onClick={() => router.push(`/timesheet/${idx}`)}
+                    />
                   </td>
                 </tr>
               ))}

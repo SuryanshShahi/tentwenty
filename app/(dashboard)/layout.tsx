@@ -7,6 +7,9 @@ import UserCard from "../shared/cards/UserCard";
 import ConfirmationModal from "../shared/modal/ConfirmationModal";
 import PopOver from "../shared/PopOver";
 import { useClickOutside } from "../utils/hooks/useClickOutside";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function RootLayout({
   children,
@@ -15,6 +18,34 @@ export default function RootLayout({
 }>) {
   const [isOpen, setIsOpen] = useState("");
   const { isActive, setIsActive, ref } = useClickOutside(false);
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (status === "loading") return; // Still loading
+    if (!session) {
+      router.push("/login");
+    }
+  }, [session, status, router]);
+
+  const handleLogout = async () => {
+    await signOut({ callbackUrl: "/login" });
+  };
+
+  // Show loading or nothing while checking authentication
+  if (status === "loading") {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-lg">Loading...</div>
+      </div>
+    );
+  }
+
+  // Don't render if not authenticated (will redirect)
+  if (!session) {
+    return null;
+  }
   return (
     <>
       <nav className="bg-white px-6 py-4">
@@ -32,7 +63,7 @@ export default function RootLayout({
           </div>
           <div ref={ref}>
             <UserCard
-              title="John Doe"
+              title={session.user?.name || "User"}
               styleTitle="hidden"
               showInitials
               onClick={() => setIsActive(!isActive)}
@@ -69,7 +100,7 @@ export default function RootLayout({
       <ConfirmationModal
         title="Check Out"
         description="Are you sure you want to Logout"
-        onSubmit={() => {}}
+        onSubmit={handleLogout}
         styleHeader="flex gap-x-4 !space-y-0"
         rightBtnName="Yes, Logout"
         isLoading={false}
