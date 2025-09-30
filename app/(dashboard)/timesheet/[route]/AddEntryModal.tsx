@@ -1,7 +1,6 @@
 import DropdownField from "@/app/shared";
 import CounterBtn from "@/app/shared/CounterBtn";
 import { ModalTemplate } from "@/app/shared/modal/ModalTemplate";
-import { SvgLogin } from "@/app/svgs";
 import { useState } from "react";
 
 const AddEntryModal = ({

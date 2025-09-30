@@ -16,7 +16,7 @@ export default function RootLayout({
           width={70}
           alt="logo"
           isLocal
-          className="h-[40px] object-contain"
+          className="h-[40px] object-contain scale-125"
         />
         {children}
         <div className="text-tertiary text-sm">© 2025 tentwenty</div>
@@ -43,7 +43,7 @@ export default function RootLayout({
           </h1>
           <p className="text-xl text-white">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
+            industry. Lorem Ipsum has been the industry&apos;s standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book.
           </p>

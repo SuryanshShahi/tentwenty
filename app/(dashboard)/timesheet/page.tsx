@@ -9,7 +9,7 @@ import moment from "moment";
 import { useRouter } from "next/navigation";
 import { FiCalendar } from "react-icons/fi";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   return (
     <div className="max-w-screen-xl lg:mx-auto border border-secondary !rounded-xl bg-white mx-5 mt-10">
@@ -169,4 +169,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

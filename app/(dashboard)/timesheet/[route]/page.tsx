@@ -14,7 +14,7 @@ import { FaEdit } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import AddEntryModal from "./AddEntryModal";
 
-const page = () => {
+const Page = () => {
   const [isOpen, setIsOpen] = useState("");
   const { isActive, setIsActive, ref } = useClickOutside("");
 
@@ -22,7 +22,7 @@ const page = () => {
     <CardWrapper className="max-w-screen-xl lg:mx-auto my-10 mx-5">
       <div className="space-y-4">
         <div className="sm:text-3xl text-2xl font-bold">
-          This week's timesheet
+          This week&apos;s timesheet
         </div>
         <div className="text-tertiary text-sm">21 - 26 January, 2025</div>
       </div>
@@ -152,4 +152,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
