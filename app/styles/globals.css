@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --brand-50: #ebf9ff;
+  --brand-200: #a3e2ff;
+  --brand-300: #6bd0ff;
+  --brand-400: #1ab6ff;
+  --brand-500: #0094d9;
+  --brand-600: #0084c2;
+  --brand-700: #0076ad;
+  --brand-800: #005e8a;
+  --brand-900: #004261;
+  --brand-950: #00344d;
+}
+body {
+  background-color: #f8f8f8;
+}
+.modalLogo {
+  backdrop-filter: blur(2px);
+  background-color: rgba(235, 235, 235, 0.6);
+  border-radius: 10px;
+  opacity: 1;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+tr,
+th {
+  padding: 10px 50px;
+}
+
+
+
+/* React Date Picker */
+.react-date-picker__wrapper {
+  @apply !border-none !flex-wrap !items-center;
+  flex-shrink: unset !important;
+}
+.react-date-picker__inputGroup {
+  @apply !pl-2 !h-fit;
+}
+.react-date-picker__inputGroup__input {
+  @apply !bg-transparent focus:!outline-none focus:!ring-0;
+}
+.react-date-picker__inputGroup__day {
+  @apply max-w-[21px];
+}
+.react-date-picker__inputGroup__month {
+  @apply max-w-[26px];
+}
+.react-date-picker__inputGroup__year {
+  @apply max-w-[39px];
+}
+/* React Calendar */
+.react-calendar__month-view__days {
+  @apply !grid !grid-cols-7 !gap-0.5;
+}
+.react-calendar__month-view__days__day {
+  @apply !text-secondary !font-normal !text-sm !p-[10px] !leading-4 !rounded-full hover:!bg-secondary-hover hover:!text-secondary-hover;
+}
+.react-calendar__tile:disabled {
+  @apply !bg-gray-50 !text-disabled;
+}
+.react-calendar__month-view__days__day--neighboringMonth {
+  @apply !text-disabled;
+}
+.react-calendar__tile--hover {
+  @apply !bg-tertiary !text-secondary hover:!bg-tertiary hover:!text-secondary;
+}
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--active {
+  @apply !bg-brand-solid !text-white !rounded-full hover:!bg-brand-solid hover:!text-white;
+}
+.react-calendar__tile--range {
+  @apply !bg-gray-100 !text-secondary hover:!bg-tertiary hover:!text-secondary;
+}
+.react-calendar__tile--rangeStart {
+  @apply !bg-brand-solid !text-white !rounded-full hover:!bg-brand-solid hover:!text-white;
+}
+.react-calendar__tile--rangeEnd {
+  @apply !bg-brand-solid !text-white !rounded-full hover:!bg-brand-solid hover:!text-white;
+}
+.react-date-picker__calendar {
+  @apply !w-[300px] !mt-1;
+}
+.calendarPopup {
+  @apply !mt-1;
+}
+.calendarPopup .react-calendar {
+  @apply !w-[300px];
+}
+.react-calendar {
+  @apply !w-full !p-4 !bg-white !font-sora !border !border-gray-200 !shadow-md !rounded-lg;
+}
+.react-calendar__month-view__weekdays {
+  @apply !grid !grid-cols-7 !gap-0.5;
+}
+.react-calendar__month-view__weekdays__weekday abbr {
+  @apply !no-underline !text-secondary !font-medium !text-sm !normal-case;
+}
+
+.react-calendar__navigation {
+  @apply !mb-0  mx-1 !flex !items-center space-x-4;
+}
+.react-calendar__navigation button {
+  @apply hover:!bg-secondary-hover focus:!bg-secondary-hover rounded-md items-center !justify-center !h-10;
+}
+.react-calendar__navigation__prev-button {
+  @apply !flex !ms-0 !min-w-6;
+}
+.react-calendar__navigation__prev-button:disabled {
+  @apply !bg-gray-50 !text-disabled;
+}
+.react-calendar__navigation__next-button {
+  @apply !flex !mr-0 !min-w-6;
+}
+.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
+  @apply !font-medium !text-base !leading-6 !text-tertiary-hover;
+}
+.react-calendar__year-view__months {
+  @apply !grid grid-cols-4 !gap-1;
+}
+.react-calendar__year-view__months__month {
+  @apply hover:!bg-secondary-hover !h-8 flex rounded-md items-center justify-center !py-5 !mt-2;
+}
+.react-calendar__year-view__months__month abbr {
+  @apply !text-secondary !text-sm font-medium !leading-5;
+}
+.react-calendar__decade-view__years {
+  @apply !grid grid-cols-4 !gap-1;
+}
+.react-calendar__decade-view__years__year {
+  @apply !text-secondary !text-sm font-medium rounded-md !leading-5 hover:!bg-secondary-hover !h-8 flex !flex-[0_0_25%] items-center justify-center !py-5 !mt-2;
+}
+.react-calendar__tile--hasActive {
+  @apply !bg-brand-solid !text-white hover:!bg-brand-solid hover:!text-white;
+}
+.react-calendar__tile--hasActive abbr {
+  @apply !text-white;
+}
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+  @apply !hidden;
+}
+.react-calendar__viewContainer {
+  @apply mt-2;
+}
+
+
+
+/* React Select */
+.app-select-wrapper .app-select-container {
+  @apply h-10;
+}
+.app-select-wrapper .dropdown-container:focus-within {
+  outline: 1px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-inset: var(--tw-empty);
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: #2563eb;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow);
+  border-color: #2563eb;
+}
+.dropdown-container {
+  @apply focus-within:outline-none focus-within:ring-1 focus-within:ring-transparent focus-within:ring-offset-2 focus-within:ring-offset-white focus-within:ring-blue-500 focus-within:border-blue-500;
+}
+.app-select-wrapper .app-select__control {
+  @apply px-2 border-primary border-opacity-30 border-none rounded-lg !important;
+}
+.app-select-wrapper .app-select__value-container {
+  @apply pr-3 pl-0 flex-wrap py-0 !important;
+}
+.app-select-wrapper .app-select__control:hover,
+.app-select-wrapper .app-select__control--is-focused,
+.app-select-wrapper .app-select__control--menu-is-open {
+  @apply border-primary border-opacity-50 ring-0 !important;
+}
+.app-select-wrapper .app-select__control--is-disabled .app-select__placeholder {
+  @apply text-disabled !important;
+}
+.app-select input {
+  @apply h-auto;
+}
+.app-select-wrapper .app-select__placeholder {
+  @apply text-base text-placeholder font-normal whitespace-nowrap;
+}
+.app-select-wrapper .app-select__single-value {
+  @apply text-base font-medium mx-0 !important;
+}
+.app-select-with-image .app-select__value-container {
+  @apply !pl-7;
+}
+.app-select-wrapper .app-select__menu-list {
+  @apply rounded-lg border-primary border-opacity-30 px-2 !important;
+}
+.app-select-wrapper .app-select__menu {
+  @apply mt-2 !important;
+}
+.app-select-wrapper .app-select__option {
+  @apply text-base text-primary font-medium px-2 py-[10px] rounded-md !important;
+}
+.app-select-wrapper .app-select__option.app-select__option--is-selected {
+  @apply bg-active text-primary !important;
+}
+.app-select-wrapper .app-select__option--is-focused {
+  @apply bg-active !important;
+}
+.app-select-wrapper .app-select__indicator {
+  @apply p-0;
+}
+.app-select-wrapper .app-select__indicator-separator {
+  @apply hidden;
+}
+.app-select-wrapper .app-select__indicator svg {
+  @apply w-6 h-6;
+}
+.app-select-wrapper .app-select__multi-value {
+  @apply mr-[6px] px-2 py-1 rounded-md !important;
+}
+.app-select-wrapper .app-select__multi-value__label {
+  @apply p-0 text-primary text-sm rounded-s-md !important;
+}
+.app-select-wrapper .app-select__multi-value__remove {
+  @apply pr-0 -mr-1 !important;
+}
+.app-select-wrapper .app-select__multi-value__remove:hover {
+  @apply bg-[#e6e6e6] text-primary opacity-60 !important;
+}
+.app-select-wrapper .app-select__multi-value__remove svg {
+  @apply w-4 h-4 fill-disabled;
+}
+.app-select-wrapper .app-select__input-container {
+  @apply !m-0;
+}
+.app-select-container.app-select-error .app-select__control {
+  @apply border-error;
+}
+.app-select .app-select__indicators {
+  @apply px-2;
+}
+.app-select-wrapper .css-1p3m7a8-multiValue {
+  @apply !bg-white !text-primary !border !border-primary;
+}
+.app-select-wrapper .css-1p3m7a8-multiValue .css-wsp0cs-MultiValueGeneric {
+  @apply !text-primary;
+}
